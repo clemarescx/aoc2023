@@ -7,11 +7,11 @@ const INPUT: &str = include_str!("input.txt");
 
 pub(crate) fn main() {
     let location = part_one(INPUT);
-    println!("lowest location number: {location}");
+    println!("part one: {location}");
     let instant = Instant::now();
     let location = part_two(INPUT);
     let elapsed = instant.elapsed();
-    println!("lowest location number (range): {location}");
+    println!("part two: {location}");
     println!("completed in {} µs", elapsed.as_micros());
 }
 
@@ -35,7 +35,6 @@ fn part_two(input: &str) -> u64 {
 
 fn parse_input(input: &str) -> Almanac {
     let mut lines = input.lines();
-    // let parts: Vec<_> = input.split("\n\n").collect();
     let seeds: Vec<u64> = lines
         .next()
         .unwrap()
@@ -53,7 +52,6 @@ fn parse_input(input: &str) -> Almanac {
 
     let mut maps = HashMap::new();
 
-    // for map in &parts[1..] {
     while let Some(line) = lines.next() {
         if line.is_empty() {
             continue;
