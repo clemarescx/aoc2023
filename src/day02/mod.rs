@@ -22,7 +22,7 @@ fn find_minimum_powers(games: &[Game]) -> Vec<u32> {
         let mut min_counts: HashMap<&String, u32> = HashMap::new();
         for reveal in &game.cube_draws {
             for (color, count) in &reveal.colors {
-                let entry = min_counts.entry(&color).or_insert(0);
+                let entry = min_counts.entry(color).or_insert(0);
                 *entry = (*entry).max(*count);
             }
         }
